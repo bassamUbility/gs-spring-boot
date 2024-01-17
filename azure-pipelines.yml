@@ -20,7 +20,6 @@ steps:
     codeCoverageToolOption: 'Cobertura'
     codeCoverageFailIfEmpty: true
     javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.7'
     mavenVersionOption: 'Default'
     mavenAuthenticateFeed: false
     effectivePomSkip: false
