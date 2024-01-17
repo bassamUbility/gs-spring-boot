@@ -11,23 +11,15 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
 - task: Maven@4
   inputs:
     mavenPomFile: 'app/pom.xml'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
-- task: PublishCodeCoverageResults@1
-  inputs:
-    codeCoverageTool: 'JaCoCo' 
-    summaryFileLocation: '$(Build.ArtifactStagingDirectory)'  
+
+   
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(system.defaultworkingdirectory)'
