@@ -14,11 +14,17 @@ steps:
 
 - task: Maven@4
   inputs:
-    mavenPomFile: 'app/pom.xml'
+    mavenPomFile: 'pom.xml'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    javaHomeOption: 'JDKVersion'
     codeCoverageToolOption: 'Cobertura'
+    codeCoverageFailIfEmpty: true
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.7'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: false
    
 - task: CopyFiles@2
   inputs:
